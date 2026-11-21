@@ -1,0 +1,37 @@
+:root {
+  --bg: #1C1622;
+  --surface: #2A2131;
+  --border: #4E405A;
+  --text: #F2EDE4;
+  --muted: #A89FAF;
+  --red: #E5484D;
+  --gold: #D4A657;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 1rem/1.6 "Inter", system-ui, sans-serif;
+}
+
+.name {
+  margin: 0;
+  font: 400 clamp(4rem, 17vw, 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.name span { display: block; }
+.first { font-size: 1.02em; }
+.last  { color: var(--red); font-size: 1.25em; }
+
+/* tablet */
+@media (min-width: 768px) { }
+
+/* laptop */
+@media (min-width: 1024px) { }
+
+/* large desktop */
+@media (min-width: 1440px) { }
