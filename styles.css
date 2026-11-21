@@ -9,17 +9,30 @@
   color-scheme: dark;
 }
 
+html { scroll-snap-type: y mandatory; }
+
 body {
   margin: 0;
-  padding: 1rem;
+  padding: 0;
   background: var(--bg);
   color: var(--text);
   font: 1rem/1.6 "Inter", system-ui, sans-serif;
 }
 
+section {
+  min-height: 100svh;
+  scroll-snap-align: start;
+}
+
+.hero { 
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; 
+} 
+
 .name {
   margin: 0;
-  font: 400 clamp(4rem, 17vw, 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
+  font: 400 clamp(3rem, min(17vw, 26svh), 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -31,7 +44,9 @@ body {
 @media (min-width: 768px) { }
 
 /* laptop */
-@media (min-width: 1024px) { }
+@media (min-width: 1024px) { 
+  .hero { padding-left: 3rem; }
+}
 
 /* large desktop */
 @media (min-width: 1440px) { }
