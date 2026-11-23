@@ -47,6 +47,14 @@ section h2 { margin: 0 0 1.5rem; }
 .hero-cutout--small { width: clamp(260px, 32vw, 520px); right: 0; }
 .hero-cutout--big { width: 60vw; right: -15vw; }
 
+.hero .hero-cutout {
+  position: fixed;
+  animation: fade-out linear both;
+  animation-timeline: scroll();
+  animation-range: 0 100svh;
+}
+@keyframes fade-out { to { opacity: 0; } }
+
 .name {
   margin: 0;
   font: 400 clamp(3rem, min(17vw, 26svh), 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
