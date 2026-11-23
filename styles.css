@@ -44,6 +44,7 @@ section h2 { margin: 0 0 1.5rem; }
   height: auto;
   pointer-events: none;
 }
+.hero-cutout--small { width: clamp(260px, 32vw, 520px); right: 0; }
 .hero-cutout--big { width: 60vw; right: -15vw; }
 
 .name {
@@ -98,6 +99,9 @@ section h2 { margin: 0 0 1.5rem; }
 .tags li { padding: 0.2rem 0.65rem; border-radius: 10px; font-size: 0.85rem; }
 
 /* contact */
+.contact { position: relative; overflow: hidden; }
+.contact-inner { position: relative; z-index: 1; }
+
 .contact-email {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -120,6 +124,8 @@ section h2 { margin: 0 0 1.5rem; }
 @media (max-width: 767px) {
   .tagline span { display: block; }
   .tagline .sep { display: none; }
+
+  .hero-cutout--small { display: none; }
 }
 
 /* laptop */
