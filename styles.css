@@ -127,12 +127,14 @@ section h2 { margin: 0 0 1.5rem; }
 }
 .contact-links a:hover { background: var(--gold); color: var(--bg); }
 .contact-meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.resume { display: none; } /* no resume ready yet, I'll display it when ready */
 
 /* phone */
 @media (max-width: 767px) {
   .tagline span { display: block; }
   .tagline .sep { display: none; }
 
+  .hero-cutout--big { width: 80vw; right: -15vw; }
   .hero-cutout--small { display: none; }
 }
 
