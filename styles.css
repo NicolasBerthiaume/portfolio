@@ -18,21 +18,20 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 1rem/1.6 "Inter", system-ui, sans-serif;
-  font-family: "Space Grotesk", sans-serif;
+  font: 1rem/1.6 "Space Grotesk", system-ui, sans-serif;
 }
 button, input, textarea { font: inherit; }
 
-/* every section: full screen, snaps, centred content */
 section {
   min-height: 100vh;
   min-height: 100svh;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   padding: 0 1rem;
 }
-section h2 { 
-  margin: 0 0 1.5rem; 
+section h2 {
+  margin: 0 0 1.5rem;
   font-family: "Zen Tokyo Zoo", sans-serif;
   font-weight: 400;
 }
@@ -54,12 +53,11 @@ section h2 {
   pointer-events: none;
 }
 .hero-cutout--small { width: clamp(260px, 32vw, 520px); right: 0; }
-.hero-cutout--big { width: 60vw; right: -15vw; }
-
-.hero .hero-cutout { position: fixed; }
+.hero-cutout--big { position: fixed; width: 60vw; right: -15vw; }
 
 @supports (animation-timeline: scroll()) {
   .hero .hero-cutout {
+    /* position: fixed; */
     animation: fade-out linear both;
     animation-timeline: scroll();
     animation-range: 0 100svh;
@@ -70,7 +68,7 @@ section h2 {
 .name {
   margin: 0;
   font: 400 clamp(3rem, min(17vw, 26vh), 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
-  font: 400 clamp(3rem, min(17vw, 26svh), 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
+  font: 400 clamp(3rem, min(17vw, 26svh), 16rem)/0.92 "Zen Tokyo Zoo", sans-serif; 
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -119,11 +117,10 @@ section h2 {
 .tags li { padding: 0.2rem 0.65rem; border-radius: 10px; font-size: 0.85rem; }
 
 /* projects */
-
 .projects-cards {
   display: flex;
   gap: 1rem;
-  align-items: stretch; 
+  align-items: stretch;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -137,6 +134,7 @@ section h2 {
 .card-group {
   flex: 0 0 85%;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -147,7 +145,7 @@ section h2 {
   min-height: 22rem;
 }
 .card-group h3 { margin: 0; }
-.card-group p, .school  { margin: 0; color: var(--muted); flex-grow: 1; }
+.card-group p, .school { margin: 0; color: var(--muted); flex-grow: 1; }
 
 .card-link {
   color: var(--red);
@@ -157,39 +155,6 @@ section h2 {
 .card-link:hover { text-decoration: underline; }
 
 .cards-nav { display: none; }
-
-@media (min-width: 1024px) {
-  .projects-cards { margin: 0; padding: 0; scroll-padding: 0; }
-  .card-group { flex-basis: calc((100% - 1rem) / 2); }
-
-  .cards-nav {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  .cards-nav button {
-    width: 2.75rem;
-    height: 2.75rem;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    background: var(--surface);
-    color: var(--text);
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  .cards-nav button:hover { border-color: var(--gold); color: var(--gold); }
-}
-
-@media (min-width: 1024px) {
-  .card-group { flex-basis: calc(50% - 0.5rem); }
-  .cards-nav { display: flex; justify-content: flex-end; gap: 0.5rem; }
-  .cards-nav button {
-    width: 2.75rem; height: 2.75rem; border-radius: 50%;
-    border: 1px solid var(--border); background: var(--surface);
-    color: var(--text); font-size: 1.2rem; cursor: pointer;
-  }
-}
 
 /* contact */
 .contact { position: relative; overflow: hidden; }
@@ -234,10 +199,9 @@ section h2 {
     column-gap: 3rem;
   }
   .skills h2 { grid-column: 1 / -1; }
-  .about h2, .about .lead, .about .about-computer { grid-column: 1; }
 
   .about-left { display: contents; }
-  .about-part h2, .about .lead, .about .about-computer { grid-column: 1; }
+  .about h2, .about .lead, .about .about-computer { grid-column: 1; }
   .about-right { grid-column: 2; grid-row: 2 / span 2; }
   .about .about-computer {
     display: block;
@@ -246,5 +210,24 @@ section h2 {
     margin-top: 1.5rem;
   }
 
+  /* projects: one whole card at a time, arrows appear */
+  .projects-cards { margin: 0; padding: 0; scroll-padding: 0; }
   .card-group { flex-basis: 100%; }
+  .cards-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .cards-nav button {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .cards-nav button:hover { border-color: var(--gold); color: var(--gold); }
 }
