@@ -210,7 +210,6 @@ section h2 {
     margin-top: 1.5rem;
   }
 
-  /* projects: one whole card at a time, arrows appear */
   .projects-cards { margin: 0; padding: 0; scroll-padding: 0; }
   .card-group { flex-basis: 100%; }
   .cards-nav {
