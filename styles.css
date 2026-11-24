@@ -9,6 +9,8 @@
   color-scheme: dark;
 }
 
+*, *::before, *::after { box-sizing: border-box; }
+
 html { scroll-snap-type: y mandatory; scrollbar-width: none; }
 html::-webkit-scrollbar { display: none; }
 
@@ -17,7 +19,9 @@ body {
   background: var(--bg);
   color: var(--text);
   font: 1rem/1.6 "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
+button, input, textarea { font: inherit; }
 
 /* every section: full screen, snaps, centred content */
 section {
@@ -95,7 +99,6 @@ section h2 {
   color: var(--muted);
 }
 
-/* tag lists and contact buttons share one style */
 .tags, .contact-links {
   list-style: none;
   margin: 0;
@@ -109,6 +112,79 @@ section h2 {
   color: var(--gold);
 }
 .tags li { padding: 0.2rem 0.65rem; border-radius: 10px; font-size: 0.85rem; }
+
+/* projects */
+
+.projects-cards {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch; 
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  scroll-padding: 0 1rem;
+}
+.projects-cards::-webkit-scrollbar { display: none; }
+
+.card-group {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  min-height: 22rem;
+}
+.card-group h3 { margin: 0; }
+.card-group p, .school  { margin: 0; color: var(--muted); flex-grow: 1; }
+
+.card-link {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: none;
+}
+.card-link:hover { text-decoration: underline; }
+
+.cards-nav { display: none; }
+
+@media (min-width: 1024px) {
+  .projects-cards { margin: 0; padding: 0; scroll-padding: 0; }
+  .card-group { flex-basis: calc((100% - 1rem) / 2); }
+
+  .cards-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .cards-nav button {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .cards-nav button:hover { border-color: var(--gold); color: var(--gold); }
+}
+
+@media (min-width: 1024px) {
+  .card-group { flex-basis: calc(50% - 0.5rem); }
+  .cards-nav { display: flex; justify-content: flex-end; gap: 0.5rem; }
+  .cards-nav button {
+    width: 2.75rem; height: 2.75rem; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text); font-size: 1.2rem; cursor: pointer;
+  }
+}
 
 /* contact */
 .contact { position: relative; overflow: hidden; }
@@ -164,4 +240,6 @@ section h2 {
     height: auto;
     margin-top: 1.5rem;
   }
+
+  .card-group { flex-basis: 100%; }
 }
