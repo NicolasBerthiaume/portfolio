@@ -25,6 +25,7 @@ button, input, textarea { font: inherit; }
 
 /* every section: full screen, snaps, centred content */
 section {
+  min-height: 100vh;
   min-height: 100svh;
   scroll-snap-align: start;
   display: flex;
@@ -55,16 +56,20 @@ section h2 {
 .hero-cutout--small { width: clamp(260px, 32vw, 520px); right: 0; }
 .hero-cutout--big { width: 60vw; right: -15vw; }
 
-.hero .hero-cutout {
-  position: fixed;
-  animation: fade-out linear both;
-  animation-timeline: scroll();
-  animation-range: 0 100svh;
+.hero .hero-cutout { position: fixed; }
+
+@supports (animation-timeline: scroll()) {
+  .hero .hero-cutout {
+    animation: fade-out linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100svh;
+  }
 }
 @keyframes fade-out { to { opacity: 0; } }
 
 .name {
   margin: 0;
+  font: 400 clamp(3rem, min(17vw, 26vh), 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
   font: 400 clamp(3rem, min(17vw, 26svh), 16rem)/0.92 "Zen Tokyo Zoo", sans-serif;
   text-transform: uppercase;
   white-space: nowrap;
