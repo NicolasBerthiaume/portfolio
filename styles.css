@@ -177,7 +177,6 @@ section h2 {
 }
 .contact-links a:hover { background: var(--gold); color: var(--bg); }
 .contact-meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
-.resume { display: none; } /* no resume ready yet, I'll display it when ready */
 
 /* phone */
 @media (max-width: 767px) {
